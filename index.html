@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB NTPC Exam Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <h2 id="examTitle">Exam Simulator</h2>
+    <div id="timer">Time: <span id="time">00:00</span></div>
+  </div>
+
+  <div id="adminPanel">
+    <h3>Create New Exam</h3>
+    <input id="setTitle" placeholder="Enter Test Name" />
+    <select id="duration">
+      <option value="30">30 Minutes</option>
+      <option value="40">40 Minutes</option>
+      <option value="50">50 Minutes</option>
+      <option value="60">60 Minutes</option>
+	  <option value="90">90 Minutes</option>
+    </select>
+    <textarea id="mcqInput" placeholder="Paste your MCQs here in full 6-line format..."></textarea>
+    <button onclick="generateExam()">Generate Exam</button>
+
+    <div id="savedTestsPanel">
+      <h4>📘 Saved Test Sets (Auto Saved Locally)</h4>
+      <div id="savedTests"></div>
+    </div>
+  </div>
+
+  <div id="examPanel" class="hidden">
+    <div id="questionBox"></div>
+    <div id="navigation">
+      <button onclick="prevQuestion()">Previous</button>
+      <button onclick="nextQuestion()">Next</button>
+      <button onclick="submitExam()">Submit Exam</button>
+    </div>
+    <div id="tracker"></div>
+  </div>
+
+  <div id="resultPanel" class="hidden">
+    <h3>Results</h3>
+    <div id="summary"></div>
+    <canvas id="performanceChart" width="400" height="300"></canvas>
+    <div id="wrongAnswers"></div>
+    <button onclick="location.reload()">Retake</button>
+  </div>
+
+  <script src="chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
